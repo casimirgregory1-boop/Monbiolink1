@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Gregory Casimir - Bio Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            background-color: #f1c40f; /* Couleur de ton screenshot */
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-bottom: 20px;
+        }
+
+        h1 { margin: 10px 0; font-size: 24px; }
+        p.subtitle { color: #aaa; margin-bottom: 30px; font-size: 16px; }
+
+        .btn-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* Styles pour les nouveaux réseaux sociaux */
+        .social-footer {
+            margin-top: 40px;
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 28px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover { color: #f1c40f; }
+        
+        /* Couleurs spécifiques icônes */
+        .fa-whatsapp { color: #25D366; }
+        .fa-briefcase { color: #3498db; }
+        .fa-code { color: #e67e22; }
+    </style>
+</head>
+<body>
+
+    <div class="profile-img"></div>
+    <h1>Jean Gregory Casimir</h1>
+    <p class="subtitle">Développeur Web & Designer</p>
+
+    <div class="btn-container">
+        <a href="#" class="link-btn"><i class="fas fa-briefcase"></i> Mon Portfolio</a>
+        <a href="#" class="link-btn"><i class="fas fa-code"></i> Mes Services (Landing Pages)</a>
+        <a href="https://wa.me/TON_NUMERO" class="link-btn"><i class="fab fa-whatsapp"></i> Me contacter sur WhatsApp</a>
+        <a href="#" class="link-btn"><i class="fas fa-coins"></i> Achetez-moi un café (Binance)</a>
+    </div>
+
+    <div class="social-footer">
+        <a href="LIEN_TIKTOK" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="LIEN_INSTAGRAM" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="LIEN_FACEBOOK" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+
+</body>
+</html>
