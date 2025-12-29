@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jean Gregory Casimir - Bio Link</title>
+    <title>Jean Gregory Casimir | Développeur & Designer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+	:root{
+		--primary-color: #f1c40f; /*Le jaune oU ton logo */
+		--bg-color: #0f0f0f;
+            	--card-bg: #1e1e1e;
+            	--text-color: #ffffff;
+	}
         body {
-            background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -17,86 +23,120 @@
             margin: 0;
             min-height: 100vh;
         }
+	.profile-container {
+		text-align: center;
+            	margin-bottom: 30px;
+	}
 
         .profile-img {
-            width: 120px;
-            height: 120px;
-            background-color: #f1c40f; /* Couleur de ton screenshot */
+            width: 110px;
+            height: 110px;
+            background-color: var(--primary-color); /* Couleur de ton screenshot */
             border-radius: 50%;
             border: 3px solid white;
-            margin-bottom: 20px;
+            margin: 0 auto 15px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    font-size: 40px;
+ 	    color: black;
+	    font-weight: bold;
         }
 
-        h1 { margin: 10px 0; font-size: 24px; }
-        p.subtitle { color: #aaa; margin-bottom: 30px; font-size: 16px; }
+        h1 { margin: 5px 0; font-size: 22px; }
+        .slogan {
+	    color: var(--primary-color);
+	    font-size: 14px;
+	    max-width: 280px;
+	    margin: 0 auto 20px;
+	    line-height: 1.4;
+	    font-weight: 500;
+	}
 
-        .btn-container {
+        /* Boutons de liens */
+        .links-wrapper {
             width: 100%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .link-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 12px;
+        .link-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            padding: 16px;
+            border-radius: 15px;
             text-decoration: none;
             color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .link-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.02);
+        .link-card i {
+            width: 30px;
+            font-size: 20px;
+            margin-right: 15px;
+            color: var(--primary-color);
         }
 
-        /* Styles pour les nouveaux réseaux sociaux */
-        .social-footer {
-            margin-top: 40px;
+        .link-card:hover {
+            transform: translateY(-3px);
+            background: #252525;
+            border-color: var(--primary-color);
+        }
+
+        .link-text h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Réseaux Sociaux */
+        .social-row {
+            margin-top: 35px;
             display: flex;
-            gap: 25px;
+            gap: 20px;
         }
 
-        .social-icon {
+        .social-row a {
             color: white;
-            font-size: 28px;
+            font-size: 24px;
             transition: 0.3s;
-            text-decoration: none;
         }
 
-        .social-icon:hover { color: #f1c40f; }
-        
-        /* Couleurs spécifiques icônes */
-        .fa-whatsapp { color: #25D366; }
-        .fa-briefcase { color: #3498db; }
-        .fa-code { color: #e67e22; }
+        .social-row a:hover {
+            color: var(--primary-color);
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 40px;
+            font-size: 12px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
-
-    <div class="profile-img"></div>
-    <h1>Jean Gregory Casimir</h1>
-    <p class="subtitle">Développeur Web & Designer</p>
-
-    <div class="btn-container">
-        <a href="#" class="link-btn"><i class="fas fa-briefcase"></i> Mon Portfolio</a>
-        <a href="#" class="link-btn"><i class="fas fa-code"></i> Mes Services (Landing Pages)</a>
-        <a href="https://wa.me/TON_NUMERO" class="link-btn"><i class="fab fa-whatsapp"></i> Me contacter sur WhatsApp</a>
-        <a href="#" class="link-btn"><i class="fas fa-coins"></i> Achetez-moi un café (Binance)</a>
+    <div class="profile-container">
+	<div class="profile-img">JG</div>
+	<h1>Jean Gregory Casimir</h1>
+	<p class="slogan">Je crée des sites web modernes et rapides pour booster votre activité.</p>
+    </div>
+    <div class="links-wrapper">
+        <a href="#" class="link-card"><i class="fas fa-laptop-code"></i><div class="link-text"><h3>Voir ma dernière réalisation</h3></div></a>
+        <a href="https://wa.me/50941076424?Bonjour%20Casimir,%20je%20suis%20interesse%20par%20une%20une%20Landing%20Page" class="link-card"><i class="fas fa-rocket"></i><div class="link-text"><h3>Commander une Landing Page</h3></div></a>
+        <a href="https://wa.me/50941076424" class="link-card"><i class="fab fa-whatsapp"></i> <div class="link-text"><h3>Me contacter sur WhatsApp</h3></div></a>
+        <a href="https://s.binance.com/xMqEuqp5" class="link-card"><i class="fas fa-wallet"></i><div class="link-text"><h3>Soutenir mon travail (Binance)</h3></div></a>
     </div>
 
-    <div class="social-footer">
-        <a href="LIEN_TIKTOK" class="social-icon"><i class="fab fa-tiktok"></i></a>
-        <a href="LIEN_INSTAGRAM" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="LIEN_FACEBOOK" class="social-icon"><i class="fab fa-facebook"></i></a>
+    <div class="social-row">
+        <a href="https://www.tiktok.com/@black.love0808?_r=1&_t=ZM-92baEISbE8B" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/casimirjeangregory?utm_source=qr&igsh=dWNocWVmZzQ1Nndh" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61577639145431" class="social-icon"><i class="fab fa-facebook"></i></a>
     </div>
-
+    <footer>
+	&copy; 2024 - Créé par Jean Gregory Casimir
+    </footer>
 </body>
 </html>
