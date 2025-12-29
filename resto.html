@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto d'Or | Une Expérience Gastronomique Unique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #121212;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+        }
+
+        /* Hero Section avec Image de fond */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.5rem; 
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .subtitle { font-style: italic; font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 2px; }
+
+        .btn-reserve {
+            border: 2px solid var(--gold);
+            padding: 12px 30px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-reserve:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* Section Menu */
+        .menu-preview {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 { font-family: 'Playfair Display', serif; text-align: center; font-size: 2.5rem; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .item-name { font-weight: bold; color: var(--gold); }
+        .item-price { font-family: 'Playfair Display', serif; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div style="background: rgba(0,0,0,0.5); padding: 10px 20px; display: flex; gap: 20px; border-bottom: 1px solid #333;">
+    <a href="index.html" style="color: #f1c40f; text-decoration: none; font-size: 14px;">
+        <i class="fas fa-home"></i> Accueil
+    </a>
+    <a href="portfolio.html" style="color: white; text-decoration: none; font-size: 14px;">
+        <i class="fas fa-th"></i> Retour au Portfolio
+    </a>
+    </div>
+    <header class="hero">
+        <p class="subtitle">BIENVENUE AU</p>
+        <h1>RESTO D'OR</h1>
+        <p>L'excellence culinaire dans un cadre d'exception.</p>
+        <a href="#" class="btn-reserve">Réserver une Table</a>
+    </header>
+
+    <section class="menu-preview">
+        <h2>Suggestions du Chef</h2>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <span class="item-name">Homard Thermidor</span>
+                <span class="item-price">45€</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Filet Mignon Rossini</span>
+                <span class="item-price">38€</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Risotto aux Truffes</span>
+                <span class="item-price">29€</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Soufflé au Chocolat</span>
+                <span class="item-price">14€</span>
+            </div>
+        </div>
+    </section>
+    <a href="portfolio.html" style="position: fixed; bottom: 20px; left: 20px; background: #f1c40f; color: black; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000;">
+    <i class="fas fa-arrow-left"></i>
+</a>
+</body>
+</html>
