@@ -8,16 +8,18 @@
     <style>
         :root {
             --gold: #f1c40f;
-            --dark-bg: #111;
-            --card-bg: #1a1a1a;
+            --dark-bg: #0a0a0a;
+            --card-bg: #161616;
+            --blue-lumina: #00d4ff;
         }
 
         body {
             background-color: var(--dark-bg);
             color: white;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 20px;
+            line-height: 1.6;
         }
 
         header {
@@ -25,20 +27,25 @@
             padding: 40px 0;
         }
 
-        h1 { font-size: 28px; margin-bottom: 10px; }
+        h1 { font-size: 32px; margin-bottom: 10px; letter-spacing: 1px; }
         .back-link { 
             color: var(--gold); 
             text-decoration: none; 
             font-size: 14px;
+            border: 1px solid var(--gold);
+            padding: 8px 15px;
+            border-radius: 50px;
+            transition: 0.3s;
         }
+        .back-link:hover { background: var(--gold); color: black; }
 
         /* Grille des projets */
         .projects-container {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1100px;
+            margin: 40px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             padding-bottom: 50px;
         }
 
@@ -46,45 +53,76 @@
             background: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid #333;
-            transition: 0.3s;
+            border: 1px solid #222;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        /* Zone d'image / Preview */
         .preview-box {
-            height: 180px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
-            background: linear-gradient(45deg, #222, #333);
+            position: relative;
+            background-color: #222;
         }
 
-        /* Couleurs différentes pour chaque projet */
-        .preview-a { color: #00d4ff; } /* Lumina */
-        .preview-b { color: #c5a059; } /* Resto */
-        .preview-c { color: #ffffff; } /* Shop */
+        /* Style spécifique pour Lumina avec l'image */
+        .img-lumina {
+            background-image: url('https://googleusercontent.com/image_collection/image_retrieval/9360497405058549461_0');
+            background-size: cover;
+            background-position: center;
+        }
 
         .project-content {
-            padding: 20px;
+            padding: 25px;
         }
 
-        .project-content h3 { margin: 0 0 10px 0; color: var(--gold); }
-        .project-content p { font-size: 14px; color: #aaa; margin-bottom: 20px; }
+        .project-content h3 { 
+            margin: 0 0 10px 0; 
+            color: white; 
+            font-size: 20px;
+        }
+
+        .project-content p { 
+            font-size: 14px; 
+            color: #888; 
+            margin-bottom: 25px; 
+            height: 40px; /* Aligne les boutons */
+        }
 
         .view-btn {
-            display: inline-block;
+            display: block;
             background: var(--gold);
             color: black;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 12px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 14px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            filter: brightness(1.2);
+            letter-spacing: 1px;
+        }
+
+        /* Badge technique */
+        .badge {
+            font-size: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -93,36 +131,54 @@
     <header>
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
         <h1>Mes Réalisations</h1>
-        <p style="color: #666;">Cliquez sur un projet pour voir la démo complète.</p>
+        <p style="color: #666;">Expertise en Design UI/UX & Développement Web</p>
     </header>
 
     <div class="projects-container">
+        
         <div class="project-card">
-            <div class="preview-box preview-a"><i class="fas fa-vault"></i></div>
+            <div class="preview-box img-lumina"></div>
             <div class="project-content">
+                <div>
+                    <span class="badge">Fintech</span>
+                    <span class="badge">Multi-pages</span>
+                </div>
                 <h3>Lumina Bank</h3>
-                <p>Landing page haute performance pour une banque digitale moderne.</p>
-                <a href="lumina.html" class="view-btn">Voir le projet</a>
+                <p>Système bancaire complet avec dashboard et validation de paiement.</p>
+                <a href="lumina.html" class="view-btn">Découvrir le projet</a>
             </div>
         </div>
 
         <div class="project-card">
-            <div class="preview-box preview-b"><i class="fas fa-utensils"></i></div>
+            <div class="preview-box" style="background: linear-gradient(45deg, #1a1a1a, #2c2416);">
+                <i class="fas fa-utensils" style="font-size: 50px; color: #c5a059;"></i>
+            </div>
             <div class="project-content">
+                <div>
+                    <span class="badge">Luxe</span>
+                    <span class="badge">Gastronomie</span>
+                </div>
                 <h3>Resto d'Or</h3>
-                <p>Interface élégante et luxueuse pour un restaurant gastronomique.</p>
-                <a href="resto.html" class="view-btn">Voir le projet</a>
+                <p>Présentation élégante pour établissement de haute gastronomie.</p>
+                <a href="resto.html" class="view-btn">Découvrir le projet</a>
             </div>
         </div>
 
         <div class="project-card">
-            <div class="preview-box preview-c"><i class="fas fa-shopping-cart"></i></div>
+            <div class="preview-box" style="background: linear-gradient(45deg, #222, #333);">
+                <i class="fas fa-shopping-bag" style="font-size: 50px; color: white;"></i>
+            </div>
             <div class="project-content">
+                <div>
+                    <span class="badge">E-Commerce</span>
+                    <span class="badge">Minimaliste</span>
+                </div>
                 <h3>Casimir Shop</h3>
-                <p>Boutique e-commerce minimaliste optimisée pour la vente en ligne.</p>
-                <a href="shop.html" class="view-btn">Voir le projet</a>
+                <p>Boutique en ligne moderne optimisée pour la conversion.</p>
+                <a href="shop.html" class="view-btn">Découvrir le projet</a>
             </div>
         </div>
+
     </div>
 
 </body>
