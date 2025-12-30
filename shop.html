@@ -3,154 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casimir Shop | Minimalist Style</title>
+    <title>T-shirt Minimaliste | Casimir Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent: #222;
-            --light-bg: #f8f8f8;
-            --white: #ffffff;
-            --text: #333;
+            --dark-bg: #0c0c0c;
+            --light-text: #e0e0e0;
+            --primary-btn: #ffffff; /* Blanc pour le bouton, contraste fort */
+            --border-color: #333;
         }
 
         body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
             margin: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--white);
-            color: var(--text);
-        }
-
-        /* Header avec Panier */
-        header {
             padding: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            background: white;
-            z-index: 100;
+            min-height: 100vh;
         }
 
-        .logo { font-weight: 900; letter-spacing: 2px; font-size: 20px; }
-        .cart-icon { font-size: 18px; position: relative; }
-        .cart-count { 
-            position: absolute; top: -8px; right: -10px; 
-            background: red; color: white; font-size: 10px; 
-            padding: 2px 5px; border-radius: 50%; 
-        }
-
-        /* Banner */
-        .promo-banner {
-            background: var(--light-bg);
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-        }
-
-        .promo-banner h1 { margin: 0; font-size: 28px; text-transform: uppercase; }
-
-        /* Grille de Produits */
-        .product-grid {
+        .product-page-container {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px;
-            padding: 0 20px 40px;
-        }
-
-        .product-card {
-            text-align: center;
+            grid-template-columns: 1fr 1fr; /* Image à gauche, infos à droite */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            border: 1px solid var(--border-color);
         }
 
         .product-image {
-            background: var(--light-bg);
-            height: 220px;
-            border-radius: 10px;
-            margin-bottom: 10px;
+            background-image: url('https://images.unsplash.com/photo-1571439601345-5d9c57d77051?auto=format&fit=crop&w=600&h=800&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            min-height: 450px; /* Assure une bonne hauteur sur mobile aussi */
+        }
+
+        .product-details {
+            padding: 40px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            transition: 0.3s;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .product-image:hover { transform: scale(1.02); }
+        h1 {
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-btn); /* Blanc */
+        }
 
-        .product-image i { font-size: 50px; color: #ccc; }
+        .price {
+            font-size: 28px;
+            font-weight: 500;
+            color: #f0f0f0;
+            margin-bottom: 25px;
+        }
 
-        .product-card h3 { font-size: 14px; margin: 5px 0; font-weight: 400; }
-        .price { font-weight: bold; color: var(--accent); }
+        .description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
 
-        .add-to-cart {
-            margin-top: 10px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 8px 15px;
+        .options label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .size-select, .quantity-input {
             width: 100%;
-            cursor: pointer;
+            padding: 10px;
+            background: #282828;
+            border: 1px solid #444;
             border-radius: 5px;
+            color: var(--light-text);
+            margin-bottom: 20px;
+            appearance: none; /* Cache la flèche par défaut du select */
         }
 
-        @media (max-width: 480px) {
-            .product-grid { grid-template-columns: 1fr 1fr; }
+        .add-to-cart-btn {
+            background-color: var(--primary-btn);
+            color: #1a1a1a;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--light-text);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+        }
+
+        .back-to-portfolio {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back-to-portfolio:hover { color: var(--primary-btn); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-page-container {
+                grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+            }
+            .product-image { min-height: 300px; }
+            .product-details { padding: 30px; }
+            h1 { font-size: 28px; }
+            .price { font-size: 24px; }
         }
     </style>
 </head>
 <body>
-    <div style="background: rgba(0,0,0,0.5); padding: 10px 20px; display: flex; gap: 20px; border-bottom: 1px solid #333;">
-    <a href="index.html" style="color: #f1c40f; text-decoration: none; font-size: 14px;">
-        <i class="fas fa-home"></i> Accueil
-    </a>
-    <a href="portfolio.html" style="color: white; text-decoration: none; font-size: 14px;">
-        <i class="fas fa-th"></i> Retour au Portfolio
-    </a>
-    </div>
-    <header>
-        <div class="logo">CASIMIR SHOP</div>
-        <div class="cart-icon">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count">2</span>
-        </div>
-    </header>
 
-    <div class="promo-banner">
-        <h1>Nouvelle Collection</h1>
-        <p>L'essentiel du design minimaliste.</p>
-    </div>
+    <div class="product-page-container">
+        <div class="product-image"></div>
+        <div class="product-details">
+            <div>
+                <h1>T-shirt Minimaliste Élégant</h1>
+                <p class="price">49.99 €</p>
+                <p class="description">
+                    Découvrez l'élégance intemporelle de notre T-shirt Minimaliste. Conçu avec un coton organique de première qualité, il offre un confort exceptionnel et une durabilité accrue. Sa coupe moderne s'adapte à toutes les silhouettes pour un style épuré et sophistiqué.
+                </p>
 
-    <div class="product-grid">
-        <div class="product-card">
-            <div class="product-image"><i class="fas fa-tshirt"></i></div>
-            <h3>T-Shirt Premium</h3>
-            <p class="price">25.00$</p>
-            <button class="add-to-cart">Ajouter</button>
-        </div>
+                <div class="options">
+                    <label for="size">Taille</label>
+                    <select id="size" class="size-select">
+                        <option>XS</option>
+                        <option>S</option>
+                        <option selected>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
 
-        <div class="product-card">
-            <div class="product-image"><i class="fas fa-laptop-code"></i></div>
-            <h3>Housse MacBook</h3>
-            <p class="price">40.00$</p>
-            <button class="add-to-cart">Ajouter</button>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image"><i class="fas fa-headphones"></i></div>
-            <h3>Casque Audio Studio</h3>
-            <p class="price">120.00$</p>
-            <button class="add-to-cart">Ajouter</button>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image"><i class="fas fa-clock"></i></div>
-            <h3>Montre Minimaliste</h3>
-            <p class="price">85.00$</p>
-            <button class="add-to-cart">Ajouter</button>
+                    <label for="quantity">Quantité</label>
+                    <input type="number" id="quantity" class="quantity-input" value="1" min="1">
+                </div>
+            </div>
+            
+            <button class="add-to-cart-btn">Ajouter au panier</button>
+            <a href="portfolio.html" class="back-to-portfolio">Retour au portfolio</a>
         </div>
     </div>
-    <a href="portfolio.html" style="position: fixed; bottom: 20px; left: 20px; background: #f1c40f; color: black; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000;">
-    <i class="fas fa-arrow-left"></i>
-</a>
+
 </body>
 </html>
