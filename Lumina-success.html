@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfert Réussi | Lumina Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { 
+            background: #050a10; 
+            color: white; 
+            font-family: 'Segoe UI', sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            overflow: hidden;
+        }
+
+        .success-container {
+            text-align: center;
+            padding: 30px;
+            max-width: 400px;
+        }
+
+        /* Animation de l'icône */
+        .check-icon {
+            font-size: 80px;
+            color: #00ff88;
+            margin-bottom: 20px;
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 { font-size: 24px; margin-bottom: 10px; }
+        p { color: #94a3b8; margin-bottom: 30px; }
+
+        .details-card {
+            background: #0f172a;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #1e293b;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .btn-done {
+            background: #00d4ff;
+            color: #000;
+            padding: 12px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-container">
+        <div class="check-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Transfert Réussi !</h1>
+        <p>Votre argent a été envoyé avec succès.</p>
+
+        <div class="details-card">
+            <div class="detail-row">
+                <span>Montant :</span>
+                <strong>$150.00</strong>
+            </div>
+            <div class="detail-row">
+                <span>Bénéficiaire :</span>
+                <strong>Jean G. Casimir</strong>
+            </div>
+            <div class="detail-row">
+                <span>ID Transaction :</span>
+                <span style="font-family: monospace;">#LMN-99283</span>
+            </div>
+        </div>
+
+        <a href="lumina-dash.html" class="btn-done">Retour au compte</a>
+    </div>
+
+</body>
+</html>
