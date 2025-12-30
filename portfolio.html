@@ -3,106 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Réalisations | Jean Gregory Casimir</title>
+    <title>Portfolio | Jean Gregory Casimir</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --gold: #f1c40f;
-            --dark-bg: #0a0a0a;
-            --card-bg: #161616;
-            --blue-lumina: #00d4ff;
+            --dark-bg: #050505;
+            --card-bg: #121212;
         }
 
         body {
             background-color: var(--dark-bg);
             color: white;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
         }
 
         header {
             text-align: center;
-            padding: 40px 0;
+            padding: 50px 0;
         }
 
-        h1 { font-size: 32px; margin-bottom: 10px; letter-spacing: 1px; }
+        h1 { font-size: 35px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        
         .back-link { 
             color: var(--gold); 
             text-decoration: none; 
-            font-size: 14px;
+            font-size: 13px;
             border: 1px solid var(--gold);
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 50px;
             transition: 0.3s;
         }
         .back-link:hover { background: var(--gold); color: black; }
 
-        /* Grille des projets */
+        /* Conteneur des projets */
         .projects-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 40px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 20px;
         }
 
+        /* Style "Livre" de la carte */
         .project-card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #222;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 5px solid var(--gold); /* Effet tranche de livre */
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(-10px) rotate(1deg); /* Rotation légère style livre */
+            box-shadow: 15px 15px 40px rgba(241, 196, 15, 0.2);
         }
 
-        /* Zone d'image / Preview */
+        /* Images appropriées */
         .preview-box {
             height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-color: #222;
-        }
-
-        /* Style spécifique pour Lumina avec l'image */
-        .img-lumina {
-            background-image: url('Lumina.jpg');
             background-size: cover;
             background-position: center;
+            position: relative;
         }
+
+        .img-lumina { background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80'); }
+        .img-resto { background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80'); }
+        .img-shop { background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80'); }
 
         .project-content {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        .project-content h3 { 
-            margin: 0 0 10px 0; 
-            color: white; 
-            font-size: 20px;
+        .badge {
+            font-size: 10px;
+            background: rgba(241, 196, 15, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-right: 5px;
+            font-weight: bold;
         }
 
-        .project-content p { 
-            font-size: 14px; 
-            color: #888; 
-            margin-bottom: 25px; 
-            height: 40px; /* Aligne les boutons */
-        }
+        h3 { font-size: 22px; margin: 15px 0 10px 0; color: #fff; }
+        p { color: #aaa; font-size: 14px; margin-bottom: 25px; line-height: 1.5; }
 
         .view-btn {
-            display: block;
+            margin-top: auto;
             background: var(--gold);
             color: black;
             padding: 12px;
-            border-radius: 10px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             text-align: center;
@@ -110,28 +111,18 @@
         }
 
         .view-btn:hover {
-            filter: brightness(1.2);
-            letter-spacing: 1px;
+            background: #fff;
+            transform: scale(1.05);
         }
 
-        /* Badge technique */
-        .badge {
-            font-size: 10px;
-            background: rgba(255,255,255,0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin-right: 5px;
-            color: var(--gold);
-            text-transform: uppercase;
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au Bio Link</a>
         <h1>Mes Réalisations</h1>
-        <p style="color: #666;">Expertise en Design UI/UX & Développement Web</p>
+        <p style="color: #666;">Conception d'interfaces haut de gamme</p>
     </header>
 
     <div class="projects-container">
@@ -139,51 +130,6 @@
         <div class="project-card">
             <div class="preview-box img-lumina"></div>
             <div class="project-content">
-                <div>
-                    <span class="badge">Fintech</span>
-                    <span class="badge">Multi-pages</span>
-                </div>
+                <div><span class="badge">Banking</span><span class="badge">Finance</span></div>
                 <h3>Lumina Bank</h3>
-                <p>Système bancaire complet avec dashboard et validation de paiement.</p>
-                <a href="lumina.html" class="view-btn">Découvrir le projet</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="preview-box" style="background: linear-gradient(45deg, #1a1a1a, #2c2416);">
-                <i class="fas fa-utensils" style="font-size: 50px; color: #c5a059;"></i>
-            </div>
-            <div class="project-content">
-                <div>
-                    <span class="badge">Luxe</span>
-                    <span class="badge">Gastronomie</span>
-                </div>
-                <h3>Resto d'Or</h3>
-                <p>Présentation élégante pour établissement de haute gastronomie.</p>
-                <a href="resto.html" class="view-btn">Découvrir le projet</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="preview-box" style="background: linear-gradient(45deg, #222, #333);">
-                <i class="fas fa-shopping-bag" style="font-size: 50px; color: white;"></i>
-            </div>
-            <div class="project-content">
-                <div>
-                    <span class="badge">E-Commerce</span>
-                    <span class="badge">Minimaliste</span>
-                </div>
-                <h3>Casimir Shop</h3>
-                <p>Boutique en ligne moderne optimisée pour la conversion.</p>
-                <a href="shop.html" class="view-btn">Découvrir le projet</a>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
-
-
-
-
+                <p>Une interface bancaire futuriste avec gestion de solde et transferts sécurisés.</
