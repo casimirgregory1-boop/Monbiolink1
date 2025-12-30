@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion | Lumina Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #050a10; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-card { background: #0f172a; padding: 40px; border-radius: 20px; width: 100%; max-width: 350px; text-align: center; border: 1px solid #1e293b; }
+        .logo { color: #00d4ff; font-size: 24px; font-weight: bold; margin-bottom: 30px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #1e293b; background: #050a10; color: white; box-sizing: border-box; }
+        .btn-login { width: 100%; padding: 12px; background: #00d4ff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .back { display: block; margin-top: 20px; color: #64748b; text-decoration: none; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="logo"><i class="fas fa-bolt"></i> LUMINA</div>
+        <h3>Espace Client</h3>
+        <input type="text" placeholder="Identifiant">
+        <input type="password" placeholder="Mot de passe">
+        <button class="btn-login" onclick="window.location.href='lumina-dash.html'">Se connecter</button>
+        <a href="lumina.html" class="back">Retour à l'accueil</a>
+    </div>
+</body>
+</html>

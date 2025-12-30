@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord | Lumina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #050a10; color: white; font-family: sans-serif; margin: 0; padding: 20px; }
+        .header-dash { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .balance-card { background: linear-gradient(135deg, #00d4ff, #0055ff); padding: 25px; border-radius: 20px; margin-bottom: 30px; }
+        .balance-card span { font-size: 14px; opacity: 0.8; }
+        .balance-card h2 { font-size: 32px; margin: 10px 0; }
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .menu-item { background: #0f172a; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #1e293b; text-decoration: none; color: white; }
+        .menu-item i { font-size: 24px; color: #00d4ff; margin-bottom: 10px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="header-dash">
+        <span>Bonjour, <strong>Gregory</strong> 👋</span>
+        <i class="fas fa-bell"></i>
+    </div>
+
+    <div class="balance-card">
+        <span>Solde total</span>
+        <h2>$12,450.00</h2>
+        <span>**** **** **** 4589</span>
+    </div>
+
+    <div class="menu-grid">
+        <a href="#" class="menu-item"><i class="fas fa-paper-plane"></i> Envoyer</a>
+        <a href="#" class="menu-item"><i class="fas fa-wallet"></i> Recevoir</a>
+        <a href="#" class="menu-item"><i class="fas fa-file-invoice"></i> Factures</a>
+        <a href="#" class="menu-item"><i class="fas fa-gear"></i> Réglages</a>
+    </div>
+</body>
+</html>
