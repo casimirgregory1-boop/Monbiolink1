@@ -11,6 +11,50 @@
             --bg: #0a0a0a;
             --card: #151515;
         }
+                /* Style du Panier Flottant */
+        .cart-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gold);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            cursor: pointer;
+            z-index: 1000;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cart-floating:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .cart-floating i {
+            color: black;
+            font-size: 24px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: white;
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--gold);
+        }
 
         body {
             background-color: var(--bg);
@@ -123,4 +167,5 @@
 
 </body>
 </html>
+
 
