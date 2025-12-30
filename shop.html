@@ -3,176 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-shirt Minimaliste | Casimir Shop</title>
+    <title>Collection | Casimir Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-bg: #0c0c0c;
-            --light-text: #e0e0e0;
-            --primary-btn: #ffffff; /* Blanc pour le bouton, contraste fort */
-            --border-color: #333;
+            --gold: #d4af37;
+            --bg: #0a0a0a;
+            --card: #151515;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding-bottom: 50px;
         }
 
-        .product-page-container {
-            background: #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-            max-width: 900px;
-            width: 100%;
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #111, var(--bg));
+        }
+
+        header h1 { font-size: 40px; letter-spacing: 5px; text-transform: uppercase; margin: 0; }
+        header p { color: var(--gold); letter-spacing: 2px; font-size: 14px; }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Image à gauche, infos à droite */
-            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
-            border: 1px solid var(--border-color);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
         }
 
-        .product-image {
-    background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80');
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    min-height: 450px;
-}
-
-        .product-details {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .product-card {
+            background: var(--card);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid #222;
         }
 
-        h1 {
-            font-size: 32px;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--primary-btn); /* Blanc */
+        .product-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+
+        .product-img {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
         }
 
-        .price {
-            font-size: 28px;
-            font-weight: 500;
-            color: #f0f0f0;
-            margin-bottom: 25px;
-        }
+        .product-info { padding: 20px; text-align: center; }
+        .product-info h3 { margin: 10px 0; font-weight: 300; font-size: 18px; }
+        .price { color: var(--gold); font-weight: bold; font-size: 20px; }
 
-        .description {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        .options label {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 10px;
-            color: #aaa;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .size-select, .quantity-input {
-            width: 100%;
-            padding: 10px;
-            background: #282828;
-            border: 1px solid #444;
+        .buy-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
             border-radius: 5px;
-            color: var(--light-text);
-            margin-bottom: 20px;
-            appearance: none; /* Cache la flèche par défaut du select */
-        }
-
-        .add-to-cart-btn {
-            background-color: var(--primary-btn);
-            color: #1a1a1a;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px;
         }
 
-        .add-to-cart-btn:hover {
-            background-color: var(--light-text);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
-        }
-
-        .back-to-portfolio {
+        .back-btn {
             display: block;
             text-align: center;
-            margin-top: 30px;
-            color: #888;
+            margin-top: 40px;
+            color: #555;
             text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .back-to-portfolio:hover { color: var(--primary-btn); }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .product-page-container {
-                grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-            }
-            .product-image { min-height: 300px; }
-            .product-details { padding: 30px; }
-            h1 { font-size: 28px; }
-            .price { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="product-page-container">
-        <div class="product-image"></div>
-        <div class="product-details">
-            <div>
-                <h1>T-shirt Minimaliste Élégant</h1>
-                <p class="price">49.99 €</p>
-                <p class="description">
-                    Découvrez l'élégance intemporelle de notre T-shirt Minimaliste. Conçu avec un coton organique de première qualité, il offre un confort exceptionnel et une durabilité accrue. Sa coupe moderne s'adapte à toutes les silhouettes pour un style épuré et sophistiqué.
-                </p>
+<header>
+    <h1>Casimir Luxury</h1>
+    <p>Collection Automne-Hiver 2025</p>
+</header>
 
-                <div class="options">
-                    <label for="size">Taille</label>
-                    <select id="size" class="size-select">
-                        <option>XS</option>
-                        <option>S</option>
-                        <option selected>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                    </select>
-
-                    <label for="quantity">Quantité</label>
-                    <input type="number" id="quantity" class="quantity-input" value="1" min="1">
-                </div>
-            </div>
-            
-            <button class="add-to-cart-btn">Ajouter au panier</button>
-            <a href="portfolio.html" class="back-to-portfolio">Retour au portfolio</a>
+<div class="container">
+    <div class="product-card">
+        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="product-info">
+            <h3>Blazer Signature</h3>
+            <div class="price">189.00 €</div>
+            <a href="#" class="buy-btn">Ajouter au panier</a>
         </div>
     </div>
 
+    <div class="product-card">
+        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="product-info">
+            <h3>Montre Classic Gold</h3>
+            <div class="price">245.00 €</div>
+            <a href="#" class="buy-btn">Ajouter au panier</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="product-info">
+            <h3>Sneakers Crimson</h3>
+            <div class="price">120.00 €</div>
+            <a href="#" class="buy-btn">Ajouter au panier</a>
+        </div>
+    </div>
+</div>
+
+<a href="portfolio.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
+
 </body>
 </html>
-
