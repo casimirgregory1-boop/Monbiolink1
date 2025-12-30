@@ -164,8 +164,27 @@
 </div>
 
 <a href="portfolio.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
+<script>
+    let count = 0;
+    const countElement = document.querySelector('.cart-count');
+    const buttons = document.querySelectorAll('.buy-btn');
 
+    buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            count++;
+            countElement.innerText = count;
+            
+            // Petit effet d'animation
+            countElement.style.transform = "scale(1.5)";
+            setTimeout(() => {
+                countElement.style.transform = "scale(1)";
+            }, 200);
+        });
+    });
+</script>
 </body>
 </html>
+
 
 
