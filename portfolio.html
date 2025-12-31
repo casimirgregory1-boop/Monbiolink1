@@ -175,11 +175,29 @@
                 <a href="academia.html" class="view-btn">Ouvrir le projet</a>
             </div>
         </div>
+        <div id="chat-icon" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+</div>
+
+<div id="chat-window" class="chat-hidden">
+    <div class="chat-header">
+        <span>Assistant IA Casimir</span>
+        <button onclick="toggleChat()">×</button>
+    </div>
+    <div id="chat-content" class="chat-content">
+        <p class="bot-msg">Bonjour ! Je suis l'assistant de Jean Gregory. Comment puis-je vous aider ?</p>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="user-input" placeholder="Posez votre question...">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
 
     </div>
 
 </body>
 </html>
+
 
 
 
