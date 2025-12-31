@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Premium | Jean Gregory Casimir</title>
+    <title>Portfolio Expert | Jean Gregory Casimir</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -47,15 +47,14 @@
             border-left: 5px solid var(--gold);
             box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
             transition: 0.4s;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
         }
 
-        .project-card:hover { transform: translateY(-10px) rotate(1deg); }
+        .project-card:hover { transform: translateY(-10px); }
 
         .preview-box { height: 200px; background-size: cover; background-position: center; }
         
-        /* Images stables */
+        /* Images stables via Unsplash */
         .img-lumina { background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80'); }
         .img-resto { background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80'); }
         .img-shop { background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80'); }
@@ -71,7 +70,7 @@
             border-radius: 8px; text-decoration: none; font-weight: bold; text-align: center;
         }
 
-        /* --- CHATBOT UI --- */
+        /* --- CHATBOT IA STYLE --- */
         #chat-icon {
             position: fixed; bottom: 30px; left: 30px;
             background: var(--gold); width: 60px; height: 60px; border-radius: 50%;
@@ -80,10 +79,10 @@
         }
 
         #chat-window {
-            position: fixed; bottom: 100px; left: 30px; width: 300px; height: 400px;
-            background: #1a1a1a; border: 1px solid var(--gold); border-radius: 15px;
+            position: fixed; bottom: 100px; left: 30px; width: 320px; height: 450px;
+            background: #111; border: 1px solid var(--gold); border-radius: 15px;
             display: flex; flex-direction: column; overflow: hidden; z-index: 1000;
-            transition: 0.3s ease;
+            transition: 0.3s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
         .chat-hidden { transform: scale(0); opacity: 0; pointer-events: none; }
@@ -91,13 +90,14 @@
         .chat-header { background: var(--gold); color: black; padding: 15px; display: flex; justify-content: space-between; font-weight: bold; }
         .chat-header button { background: none; border: none; font-size: 20px; cursor: pointer; }
 
-        .chat-content { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        .bot-msg { background: #333; padding: 8px 12px; border-radius: 10px; align-self: flex-start; font-size: 13px; line-height: 1.4; }
-        .user-msg { background: var(--gold); color: black; padding: 8px 12px; border-radius: 10px; align-self: flex-end; font-size: 13px; }
+        .chat-content { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #0a0a0a; }
+        .bot-msg { background: #222; padding: 10px 14px; border-radius: 10px; align-self: flex-start; font-size: 13px; color: #eee; border-left: 3px solid var(--gold); }
+        .user-msg { background: var(--gold); color: black; padding: 10px 14px; border-radius: 10px; align-self: flex-end; font-size: 13px; font-weight: 500; }
 
-        .chat-footer { padding: 10px; display: flex; gap: 5px; background: #222; }
-        .chat-footer input { flex: 1; background: transparent; border: 1px solid #444; color: white; padding: 8px; border-radius: 5px; outline: none; }
-        .chat-footer button { background: var(--gold); border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; }
+        .chat-footer { padding: 12px; display: flex; gap: 8px; background: #1a1a1a; border-top: 1px solid #333; }
+        .chat-footer input { flex: 1; background: #000; border: 1px solid #444; color: white; padding: 10px; border-radius: 8px; outline: none; }
+        .chat-footer button { background: var(--gold); border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .chat-footer button:hover { transform: scale(1.05); }
 
     </style>
 </head>
@@ -105,115 +105,119 @@
 
     <header>
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Mon Bio Link</a>
-        <h1>Portfolio Expert</h1>
-        <p style="color: #555;">Solutions Digitales de Haute Précision</p>
+        <h1>Projets d'Excellence</h1>
+        <p style="color: var(--gold); font-size: 14px; margin-top: 5px;">Conception • Développement • Intelligence Artificielle</p>
     </header>
 
     <div class="projects-container">
         <div class="project-card">
             <div class="preview-box img-lumina"></div>
             <div class="project-content">
-                <div><span class="badge">FINTECH</span></div>
+                <div><span class="badge">BANQUE</span><span class="badge">JS</span></div>
                 <h3>Lumina Bank</h3>
-                <p>Système bancaire sécurisé avec dashboard analytique.</p>
-                <a href="lumina.html" class="view-btn">Voir Projet</a>
+                <p>Interface bancaire futuriste avec gestion des transactions en temps réel.</p>
+                <a href="lumina.html" class="view-btn">Accéder au Dashboard</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="preview-box img-resto"></div>
             <div class="project-content">
-                <div><span class="badge">LUXE</span></div>
+                <div><span class="badge">GASTRONOMIE</span></div>
                 <h3>Resto d'Or</h3>
-                <p>Gastronomie et système de réservation en ligne.</p>
-                <a href="resto.html" class="view-btn">Voir Projet</a>
+                <p>Système de réservation haut de gamme pour restaurants étoilés.</p>
+                <a href="resto.html" class="view-btn">Découvrir la Carte</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="preview-box img-shop"></div>
             <div class="project-content">
-                <div><span class="badge">SHOP</span></div>
+                <div><span class="badge">E-COMMERCE</span></div>
                 <h3>Casimir Luxury</h3>
-                <p>E-commerce de mode avec gestion de panier dynamique.</p>
-                <a href="shop.html" class="view-btn">Voir Projet</a>
+                <p>Boutique de mode interactive avec panier dynamique et paiement simulé.</p>
+                <a href="shop.html" class="view-btn">Visiter le Shop</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="preview-box img-academia"></div>
             <div class="project-content">
-                <div><span class="badge">ERP</span></div>
+                <div><span class="badge">EDUCATION</span><span class="badge">ERP</span></div>
                 <h3>Academia Pro</h3>
-                <p>Gestion universitaire complète (Notes, Paiements, Planning).</p>
-                <a href="academia.html" class="view-btn">Voir Projet</a>
+                <p>Logiciel de gestion scolaire complet avec bulletins et suivi financier.</p>
+                <a href="academia.html" class="view-btn">Gérer l'École</a>
             </div>
         </div>
     </div>
 
     <div id="chat-icon" onclick="toggleChat()">
-        <i class="fas fa-robot"></i>
+        <i class="fas fa-comment-dots" style="font-size: 24px;"></i>
     </div>
 
     <div id="chat-window" class="chat-hidden">
         <div class="chat-header">
-            <span>Assistant Casimir IA</span>
+            <span><i class="fas fa-robot"></i> Assistant Casimir IA</span>
             <button onclick="toggleChat()">×</button>
         </div>
         <div id="chat-content" class="chat-content">
-            <p class="bot-msg">Bonjour ! Je suis l'IA de Jean Gregory. Je peux vous renseigner sur ses compétences ou ses projets. Que voulez-vous savoir ?</p>
+            <p class="bot-msg">Bonjour ! Je suis l'intelligence artificielle de Jean Gregory. Je connais tous ses projets. Que puis-je faire pour vous ?</p>
         </div>
         <div class="chat-footer">
-            <input type="text" id="user-input" placeholder="Ecrivez ici..." onkeypress="handleKey(event)">
+            <input type="text" id="user-input" placeholder="Posez une question..." onkeypress="if(event.key==='Enter') sendMessage()">
             <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
     <script>
-        // Fonction pour ouvrir/fermer le chat
         function toggleChat() {
             const chat = document.getElementById('chat-window');
             chat.classList.toggle('chat-hidden');
         }
 
-        // Permet d'envoyer avec la touche "Entrée"
-        function handleKey(e) {
-            if (e.key === 'Enter') sendMessage();
-        }
-
-        // Logique de message
-        function sendMessage() {
+        async function sendMessage() {
             const input = document.getElementById('user-input');
             const content = document.getElementById('chat-content');
+            const userText = input.value.trim();
 
-            if (input.value.trim() !== "") {
+            if (userText !== "") {
                 // Ajouter message utilisateur
                 const userDiv = document.createElement('p');
                 userDiv.className = 'user-msg';
-                userDiv.innerText = input.value;
+                userDiv.innerText = userText;
                 content.appendChild(userDiv);
-                
-                const message = input.value.toLowerCase();
                 input.value = ""; 
 
-                // Simuler une réponse "intelligente" basée sur des mots clés
-                setTimeout(() => {
-                    const botDiv = document.createElement('p');
-                    botDiv.className = 'bot-msg';
+                // Message de chargement
+                const botDiv = document.createElement('p');
+                botDiv.className = 'bot-msg';
+                botDiv.innerText = "...";
+                content.appendChild(botDiv);
+                content.scrollTop = content.scrollHeight;
+
+                try {
+                    // CONNEXION À TA CLÉ GEMINI
+                    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyD3DxSFxjh7-pnDYEdhcL_LJN9bgyDAS20', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: "Tu es l'assistant de Jean Gregory Casimir. Sois poli, professionnel et bref. Voici la question : " + userText }] }]
+                        })
+                    });
+
+                    const data = await response.json();
                     
-                    if(message.includes("prix") || message.includes("coûte")) {
-                        botDiv.innerText = "Chaque projet est unique. Contactez Jean Gregory pour un devis personnalisé.";
-                    } else if(message.includes("contact") || message.includes("email")) {
-                        botDiv.innerText = "Vous pouvez le contacter via le lien dans son Bio Link !";
-                    } else if(message.includes("école") || message.includes("academia")) {
-                        botDiv.innerText = "Le projet Academia Pro est l'un de ses plus complexes, gérant élèves et paiements.";
+                    if (data.candidates && data.candidates[0].content.parts[0].text) {
+                        botDiv.innerText = data.candidates[0].content.parts[0].text;
                     } else {
-                        botDiv.innerText = "C'est une excellente question. Jean Gregory pourra vous donner plus de détails lors d'un entretien.";
+                        botDiv.innerText = "Je n'ai pas pu formuler de réponse. Réessayez ?";
                     }
-                    
-                    content.appendChild(botDiv);
-                    content.scrollTop = content.scrollHeight; // Scroll vers le bas
-                }, 1000);
+
+                } catch (error) {
+                    botDiv.innerText = "Une erreur est survenue lors de la connexion à mon cerveau !";
+                    console.error("Erreur API:", error);
+                }
+                content.scrollTop = content.scrollHeight;
             }
         }
     </script>
