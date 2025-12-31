@@ -103,60 +103,19 @@
     <header>
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Mon Bio Link</a>
         <h1>Projets d'Excellence</h1>
-        <p style="color: var(--gold); font-size: 14px; margin-top: 5px;">Conception • Développement • Intelligence Artificielle</p>
+        <p style="color: var(--gold); font-size: 14px; margin-top: 5px;">Conception • Développement • IA</p>
     </header>
 
     <div class="projects-container">
-        <div class="project-card">
-            <div class="preview-box img-lumina"></div>
-            <div class="project-content">
-                <div><span class="badge">BANQUE</span></div>
-                <h3>Lumina Bank</h3>
-                <p>Interface bancaire futuriste avec dashboard analytique.</p>
-                <a href="lumina.html" class="view-btn">Accéder</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="preview-box img-resto"></div>
-            <div class="project-content">
-                <div><span class="badge">LUXE</span></div>
-                <h3>Resto d'Or</h3>
-                <p>Système de réservation haut de gamme pour restaurants.</p>
-                <a href="resto.html" class="view-btn">Découvrir</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="preview-box img-shop"></div>
-            <div class="project-content">
-                <div><span class="badge">SHOP</span></div>
-                <h3>Casimir Luxury</h3>
-                <p>Boutique de mode interactive avec panier dynamique.</p>
-                <a href="shop.html" class="view-btn">Visiter</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="preview-box img-academia"></div>
-            <div class="project-content">
-                <div><span class="badge">ERP</span></div>
-                <h3>Academia Pro</h3>
-                <p>Logiciel de gestion scolaire complet avec suivi financier.</p>
-                <a href="academia.html" class="view-btn">Gérer</a>
-            </div>
-        </div>
+        <div class="project-card"><div class="preview-box img-lumina"></div><div class="project-content"><div><span class="badge">BANQUE</span></div><h3>Lumina Bank</h3><p>Dashboard financier.</p><a href="lumina.html" class="view-btn">Accéder</a></div></div>
+        <div class="project-card"><div class="preview-box img-resto"></div><div class="project-content"><div><span class="badge">LUXE</span></div><h3>Resto d'Or</h3><p>Réservations.</p><a href="resto.html" class="view-btn">Découvrir</a></div></div>
+        <div class="project-card"><div class="preview-box img-shop"></div><div class="project-content"><div><span class="badge">SHOP</span></div><h3>Casimir Luxury</h3><p>E-commerce.</p><a href="shop.html" class="view-btn">Visiter</a></div></div>
+        <div class="project-card"><div class="preview-box img-academia"></div><div class="project-content"><div><span class="badge">ERP</span></div><h3>Academia Pro</h3><p>Gestion scolaire.</p><a href="academia.html" class="view-btn">Gérer</a></div></div>
     </div>
 
-    <div id="chat-icon" onclick="toggleChat()">
-        <i class="fas fa-robot" style="font-size: 24px;"></i>
-    </div>
-
+    <div id="chat-icon" onclick="toggleChat()"><i class="fas fa-robot"></i></div>
     <div id="chat-window" class="chat-hidden">
-        <div class="chat-header">
-            <span>Assistant Casimir IA</span>
-            <button onclick="toggleChat()">×</button>
-        </div>
+        <div class="chat-header"><span>Assistant Casimir IA</span><button onclick="toggleChat()">×</button></div>
         <div id="chat-content" class="chat-content">
             <p class="bot-msg">Bonjour ! Je suis l'IA de Jean Gregory. Comment puis-je vous aider ?</p>
         </div>
@@ -167,9 +126,7 @@
     </div>
 
     <script>
-        function toggleChat() {
-            document.getElementById('chat-window').classList.toggle('chat-hidden');
-        }
+        function toggleChat() { document.getElementById('chat-window').classList.toggle('chat-hidden'); }
 
         async function sendMessage() {
             const input = document.getElementById('user-input');
@@ -190,26 +147,22 @@
                 content.scrollTop = content.scrollHeight;
 
                 try {
-                    // Utilisation de ta clé API active
+                    // URL MISE À JOUR : gemini-pro sur v1 (Plus stable)
                     const apiKey = "AIzaSyD3DxSFxjh7-pnDYEdhcL_LJN9bgyDAS20";
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            contents: [{ parts: [{ text: "Tu es l'assistant de Jean Gregory Casimir. Réponds de façon pro et courte. Question : " + userText }] }]
+                            contents: [{ parts: [{ text: "Réponds brièvement comme l'assistant de Jean Gregory Casimir : " + userText }] }]
                         })
                     });
 
                     const data = await response.json();
-                    
-                    if (data.error) {
-                        botDiv.innerText = "Erreur : " + data.error.message;
-                    } else if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    if (data.candidates && data.candidates[0].content.parts[0].text) {
                         botDiv.innerText = data.candidates[0].content.parts[0].text;
                     } else {
-                        botDiv.innerText = "Je n'ai pas pu répondre. Réessayez.";
+                        botDiv.innerText = "Désolé, je rencontre une difficulté technique.";
                     }
-
                 } catch (error) {
                     botDiv.innerText = "Erreur de connexion.";
                 }
