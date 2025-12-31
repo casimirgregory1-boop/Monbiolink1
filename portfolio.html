@@ -236,9 +236,38 @@
 </div>
 
     </div>
+function toggleChat() {
+    const chat = document.getElementById('chat-window');
+    chat.classList.toggle('chat-hidden');
+}
+
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const content = document.getElementById('chat-content');
+
+    if (input.value.trim() !== "") {
+        // Ajouter le message utilisateur
+        const userDiv = document.createElement('p');
+        userDiv.className = 'user-msg';
+        userDiv.innerText = input.value;
+        content.appendChild(userDiv);
+        
+        input.value = ""; // Vider l'input
+        
+        // Simuler une réponse auto (en attendant de brancher l'API)
+        setTimeout(() => {
+            const botDiv = document.createElement('p');
+            botDiv.className = 'bot-msg';
+            botDiv.innerText = "C'est noté ! Jean Gregory vous répondra bientôt.";
+            content.appendChild(botDiv);
+            content.scrollTop = content.scrollHeight;
+        }, 1000);
+    }
+}
 
 </body>
 </html>
+
 
 
 
