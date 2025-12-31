@@ -3,273 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Jean Gregory Casimir</title>
+    <title>Portfolio Premium | Jean Gregory Casimir</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --gold: #f1c40f;
             --dark-bg: #050505;
             --card-bg: #121212;
+            --text-gray: #aaa;
         }
 
         body {
             background-color: var(--dark-bg);
             color: white;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             padding: 20px;
         }
 
-        header {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        h1 { font-size: 35px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        header { text-align: center; padding: 40px 0; }
+        h1 { font-size: 35px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
         
         .back-link { 
-            color: var(--gold); 
-            text-decoration: none; 
-            font-size: 13px;
-            border: 1px solid var(--gold);
-            padding: 10px 20px;
-            border-radius: 50px;
+            color: var(--gold); text-decoration: none; font-size: 13px;
+            border: 1px solid var(--gold); padding: 10px 20px; border-radius: 50px;
             transition: 0.3s;
         }
         .back-link:hover { background: var(--gold); color: black; }
 
-        /* Conteneur des projets */
+        /* Grille des Projets */
         .projects-container {
             max-width: 1200px;
             margin: 40px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        /* Style "Livre" de la carte */
         .project-card {
             background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            border-left: 5px solid var(--gold); /* Effet tranche de livre */
+            border-left: 5px solid var(--gold);
             box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.4s ease;
+            transition: 0.4s;
             display: flex;
             flex-direction: column;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px) rotate(1deg); /* Rotation légère style livre */
-            box-shadow: 15px 15px 40px rgba(241, 196, 15, 0.2);
-        }
+        .project-card:hover { transform: translateY(-10px) rotate(1deg); }
 
-        /* Images appropriées */
-        .preview-box {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
+        .preview-box { height: 200px; background-size: cover; background-position: center; }
+        
+        /* Images stables */
         .img-lumina { background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80'); }
         .img-resto { background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80'); }
         .img-shop { background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80'); }
+        .img-academia { background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'); }
 
-        .project-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .badge {
-            font-size: 10px;
-            background: rgba(241, 196, 15, 0.1);
-            padding: 5px 10px;
-            border-radius: 4px;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-right: 5px;
-            font-weight: bold;
-        }
-
-        h3 { font-size: 22px; margin: 15px 0 10px 0; color: #fff; }
-        p { color: #aaa; font-size: 14px; margin-bottom: 25px; line-height: 1.5; }
+        .project-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .badge { font-size: 10px; background: rgba(241, 196, 15, 0.1); padding: 4px 8px; border-radius: 4px; color: var(--gold); margin-right: 5px; }
+        h3 { margin: 15px 0 10px 0; }
+        p { color: var(--text-gray); font-size: 14px; margin-bottom: 20px; }
 
         .view-btn {
-            margin-top: auto;
-            background: var(--gold);
-            color: black;
-            padding: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            transition: 0.3s;
+            margin-top: auto; background: var(--gold); color: black; padding: 10px;
+            border-radius: 8px; text-decoration: none; font-weight: bold; text-align: center;
         }
 
-        .view-btn:hover {
-            background: #fff;
-            transform: scale(1.05);
+        /* --- CHATBOT UI --- */
+        #chat-icon {
+            position: fixed; bottom: 30px; left: 30px;
+            background: var(--gold); width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000;
         }
-        
-        /* Image pour ACADEMIA - Lien permanent et stable */
-.img-academia { 
-    background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80'); 
-    background-size: cover;
-    background-position: center;
-}
-#chat-icon {
-    position: fixed;
-    bottom: 30px;
-    left: 30px; /* À l'opposé du panier pour ne pas gêner */
-    background: var(--gold);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    z-index: 1000;
-}
 
-#chat-window {
-    position: fixed;
-    bottom: 100px;
-    left: 30px;
-    width: 300px;
-    height: 400px;
-    background: #1a1a1a;
-    border: 1px solid var(--gold);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 1000;
-    transition: 0.3s ease;
-}
+        #chat-window {
+            position: fixed; bottom: 100px; left: 30px; width: 300px; height: 400px;
+            background: #1a1a1a; border: 1px solid var(--gold); border-radius: 15px;
+            display: flex; flex-direction: column; overflow: hidden; z-index: 1000;
+            transition: 0.3s ease;
+        }
 
-.chat-hidden { transform: scale(0); opacity: 0; pointer-events: none; }
+        .chat-hidden { transform: scale(0); opacity: 0; pointer-events: none; }
 
-.chat-header { background: var(--gold); color: black; padding: 15px; display: flex; justify-content: space-between; font-weight: bold; }
-.chat-header button { background: none; border: none; font-size: 20px; cursor: pointer; }
+        .chat-header { background: var(--gold); color: black; padding: 15px; display: flex; justify-content: space-between; font-weight: bold; }
+        .chat-header button { background: none; border: none; font-size: 20px; cursor: pointer; }
 
-.chat-content { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-.bot-msg { background: #333; padding: 8px 12px; border-radius: 10px; align-self: flex-start; font-size: 14px; }
-.user-msg { background: var(--gold); color: black; padding: 8px 12px; border-radius: 10px; align-self: flex-end; font-size: 14px; }
+        .chat-content { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .bot-msg { background: #333; padding: 8px 12px; border-radius: 10px; align-self: flex-start; font-size: 13px; line-height: 1.4; }
+        .user-msg { background: var(--gold); color: black; padding: 8px 12px; border-radius: 10px; align-self: flex-end; font-size: 13px; }
 
-.chat-footer { padding: 10px; display: flex; gap: 5px; background: #222; }
-.chat-footer input { flex: 1; background: transparent; border: 1px solid #444; color: white; padding: 8px; border-radius: 5px; }
-
+        .chat-footer { padding: 10px; display: flex; gap: 5px; background: #222; }
+        .chat-footer input { flex: 1; background: transparent; border: 1px solid #444; color: white; padding: 8px; border-radius: 5px; outline: none; }
+        .chat-footer button { background: var(--gold); border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; }
 
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au Bio Link</a>
-        <h1>Mes Réalisations</h1>
-        <p style="color: #666;">Conception d'interfaces haut de gamme</p>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Mon Bio Link</a>
+        <h1>Portfolio Expert</h1>
+        <p style="color: #555;">Solutions Digitales de Haute Précision</p>
     </header>
 
     <div class="projects-container">
-        
         <div class="project-card">
             <div class="preview-box img-lumina"></div>
             <div class="project-content">
-                <div><span class="badge">Banking</span><span class="badge">Finance</span></div>
+                <div><span class="badge">FINTECH</span></div>
                 <h3>Lumina Bank</h3>
-                <p>Une interface bancaire futuriste avec gestion de solde et transferts sécurisés.</p>
-                <a href="lumina.html" class="view-btn">Ouvrir le projet</a>
+                <p>Système bancaire sécurisé avec dashboard analytique.</p>
+                <a href="lumina.html" class="view-btn">Voir Projet</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="preview-box img-resto"></div>
             <div class="project-content">
-                <div><span class="badge">Luxe</span><span class="badge">Food</span></div>
+                <div><span class="badge">LUXE</span></div>
                 <h3>Resto d'Or</h3>
-                <p>Menu digital interactif et système de réservation pour restaurants étoilés.</p>
-                <a href="resto.html" class="view-btn">Ouvrir le projet</a>
+                <p>Gastronomie et système de réservation en ligne.</p>
+                <a href="resto.html" class="view-btn">Voir Projet</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="preview-box img-shop"></div>
             <div class="project-content">
-                <div><span class="badge">E-Commerce</span><span class="badge">Fashion</span></div>
-                <h3>Casimir Shop</h3>
-                <p>Boutique de mode en ligne avec catalogue produit et expérience d'achat fluide.</p>
-                <a href="shop.html" class="view-btn">Ouvrir le projet</a>
+                <div><span class="badge">SHOP</span></div>
+                <h3>Casimir Luxury</h3>
+                <p>E-commerce de mode avec gestion de panier dynamique.</p>
+                <a href="shop.html" class="view-btn">Voir Projet</a>
             </div>
         </div>
 
         <div class="project-card">
             <div class="preview-box img-academia"></div>
             <div class="project-content">
-                <div><span class="badge">SaaS</span><span class="badge">Education</span></div>
-                <h3>Academia Management</h3>
-                <p>Système complet de gestion : inscriptions, bulletins, planning et suivi des paiements.</p>
-                <a href="academia.html" class="view-btn">Ouvrir le projet</a>
+                <div><span class="badge">ERP</span></div>
+                <h3>Academia Pro</h3>
+                <p>Gestion universitaire complète (Notes, Paiements, Planning).</p>
+                <a href="academia.html" class="view-btn">Voir Projet</a>
             </div>
         </div>
-        <div id="chat-icon" onclick="toggleChat()">
-    <i class="fas fa-comment-dots"></i>
-</div>
-
-<div id="chat-window" class="chat-hidden">
-    <div class="chat-header">
-        <span>Assistant IA Casimir</span>
-        <button onclick="toggleChat()">×</button>
     </div>
-    <div id="chat-content" class="chat-content">
-        <p class="bot-msg">Bonjour ! Je suis l'assistant de Jean Gregory. Comment puis-je vous aider ?</p>
+
+    <div id="chat-icon" onclick="toggleChat()">
+        <i class="fas fa-robot"></i>
     </div>
-    <div class="chat-footer">
-        <input type="text" id="user-input" placeholder="Posez votre question...">
-        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+
+    <div id="chat-window" class="chat-hidden">
+        <div class="chat-header">
+            <span>Assistant Casimir IA</span>
+            <button onclick="toggleChat()">×</button>
+        </div>
+        <div id="chat-content" class="chat-content">
+            <p class="bot-msg">Bonjour ! Je suis l'IA de Jean Gregory. Je peux vous renseigner sur ses compétences ou ses projets. Que voulez-vous savoir ?</p>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="Ecrivez ici..." onkeypress="handleKey(event)">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
-</div>
 
-    </div>
-function toggleChat() {
-    const chat = document.getElementById('chat-window');
-    chat.classList.toggle('chat-hidden');
-}
+    <script>
+        // Fonction pour ouvrir/fermer le chat
+        function toggleChat() {
+            const chat = document.getElementById('chat-window');
+            chat.classList.toggle('chat-hidden');
+        }
 
-function sendMessage() {
-    const input = document.getElementById('user-input');
-    const content = document.getElementById('chat-content');
+        // Permet d'envoyer avec la touche "Entrée"
+        function handleKey(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
 
-    if (input.value.trim() !== "") {
-        // Ajouter le message utilisateur
-        const userDiv = document.createElement('p');
-        userDiv.className = 'user-msg';
-        userDiv.innerText = input.value;
-        content.appendChild(userDiv);
-        
-        input.value = ""; // Vider l'input
-        
-        // Simuler une réponse auto (en attendant de brancher l'API)
-        setTimeout(() => {
-            const botDiv = document.createElement('p');
-            botDiv.className = 'bot-msg';
-            botDiv.innerText = "C'est noté ! Jean Gregory vous répondra bientôt.";
-            content.appendChild(botDiv);
-            content.scrollTop = content.scrollHeight;
-        }, 1000);
-    }
-}
+        // Logique de message
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const content = document.getElementById('chat-content');
 
+            if (input.value.trim() !== "") {
+                // Ajouter message utilisateur
+                const userDiv = document.createElement('p');
+                userDiv.className = 'user-msg';
+                userDiv.innerText = input.value;
+                content.appendChild(userDiv);
+                
+                const message = input.value.toLowerCase();
+                input.value = ""; 
+
+                // Simuler une réponse "intelligente" basée sur des mots clés
+                setTimeout(() => {
+                    const botDiv = document.createElement('p');
+                    botDiv.className = 'bot-msg';
+                    
+                    if(message.includes("prix") || message.includes("coûte")) {
+                        botDiv.innerText = "Chaque projet est unique. Contactez Jean Gregory pour un devis personnalisé.";
+                    } else if(message.includes("contact") || message.includes("email")) {
+                        botDiv.innerText = "Vous pouvez le contacter via le lien dans son Bio Link !";
+                    } else if(message.includes("école") || message.includes("academia")) {
+                        botDiv.innerText = "Le projet Academia Pro est l'un de ses plus complexes, gérant élèves et paiements.";
+                    } else {
+                        botDiv.innerText = "C'est une excellente question. Jean Gregory pourra vous donner plus de détails lors d'un entretien.";
+                    }
+                    
+                    content.appendChild(botDiv);
+                    content.scrollTop = content.scrollHeight; // Scroll vers le bas
+                }, 1000);
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
